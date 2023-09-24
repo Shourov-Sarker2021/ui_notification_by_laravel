@@ -17,9 +17,10 @@ class DepositSuccessful extends Notification
      * @return void
      */
     protected $amount;
-    public function __construct($amount)
+    public function __construct(  $amount)
     {
         $this->amount=$amount;
+        
     }
 
     /**
@@ -58,7 +59,7 @@ class DepositSuccessful extends Notification
     public function toArray($notifiable)
     {
         return [
-            'data' =>' Your deposit of '. $this->amount.' was successful'
+            'data' =>"Congratulations!!' Your deposit of '. $this->amount.' was successful"
         ];
     }
 }

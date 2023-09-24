@@ -26,7 +26,7 @@ class DepositeController extends Controller
         ]);
         User::find(Auth::user()->id)->notify(new DepositSuccessful($deposit->amount));
      
-        return redirect()->back()->with('status','Your deposit was successful!');
+        return redirect()->back()->with('status','Congratulations!!!! Your deposit was successful.');
     }
 
     public function markAsRead(){

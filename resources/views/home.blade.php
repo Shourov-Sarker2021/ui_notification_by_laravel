@@ -15,7 +15,7 @@
                         </div>
                     @endif
  
-                    {{ __('You are logged in!') }}
+                    
                     <form method="POST" action="{{ route('deposit') }}">
                         @csrf
                         <h5 class="text-center mb-3">Make A Deposit Form</h5>
@@ -55,7 +55,7 @@
             </div>
 
             <div class="row mb-3">
-                            <label for="amount" class="col-md-4 col-form-label text-md-end">{{ __('Amount') }}</label>
+                            <label for="amount" class="col-md-3 col-form-label text-md-end">{{ __('Amount') }}</label>
                             <div class="col-md-6">
                                 <input id="amount" type="number" class="form-control @error('amount') is-invalid
                                 @enderror" name="amount" value="{{ old('amount') }}" required autocomplete="amount" autofocus>
