@@ -17,8 +17,12 @@ class DepositeController extends Controller
 
     public function deposit(Request $request){
         $deposit = Deposit::create([
+
             'user_id' =>Auth::user()->id,
-            'amount'  => $request->amount
+            'amount'  => $request->amount,
+            'name'=>$request->name,
+            'rank'=>$request->rank,
+            'subject'=>$request->subject,
         ]);
         User::find(Auth::user()->id)->notify(new DepositSuccessful($deposit->amount));
      

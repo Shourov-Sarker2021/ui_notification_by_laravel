@@ -13,12 +13,10 @@ return new class extends Migration
      */
     public function up()
     {
-        Schema::create('deposits', function (Blueprint $table) {
-            $table->id();
-            $table->string('amount');
-            $table->foreignId('user_id')->references('id')->on('users')->constrained()->onDelete('cascade')->onUpdate('cascade');
-
-            $table->timestamps();
+        Schema::table('deposits', function (Blueprint $table) {
+            $table->string('name')->nullable()->after('id');
+            $table->string('rank')->nullable()->after('name');
+            $table->string('subject')->nullable()->after('rank');
         });
     }
 
@@ -29,6 +27,8 @@ return new class extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('deposits');
+        Schema::table('deposits', function (Blueprint $table) {
+            $table->dropColumn(['name','rank','subject']);
+        });
     }
 };
